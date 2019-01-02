@@ -1,0 +1,20 @@
+{
+  "name": "ucf-web-multi",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uba-templates/ucf-web-multi.git"
+  },
+  "keywords": [],
+  "author": "yonyou FED",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uba-templates/ucf-web-multi/issues"
+  },
+  "homepage": "https://github.com/uba-templates/ucf-web-multi#readme"
+}
