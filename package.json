@@ -50,6 +50,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@babel/runtime": "^7.2.0",
+    "bee-button": "^1.0.6",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   }

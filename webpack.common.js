@@ -7,18 +7,16 @@ const glob = require("glob");
 const entries = {};
 const HtmlPlugin = [];
 
-glob.sync("./src/pages/*/app.js").forEach(path => {
-    const chunk = path.split("./src/pages/")[1].split(".js")[0];
-    console.log(chunk, path)
-    entries[chunk] = path;
+glob.sync("./src/pages/*/app.js").forEach(_path => {
+    const chunk = _path.split("./src/pages/")[1].split(".js")[0];
+    entries[chunk] = _path;
     const htmlConf = {
         filename: `${chunk.split('/app')[0]}/index.html`,
-        template: `${path.split('/app.js')[0]}/index.html`,
+        template: `${_path.split('/app.js')[0]}/index.html`,
         inject: 'body',
         chunks: ['vendors', 'styles', chunk],
         hash: true
     };
-    console.log(htmlConf)
     HtmlPlugin.push(new HtmlWebPackPlugin(htmlConf));
 });
 // process.exit(0)
@@ -48,18 +46,17 @@ module.exports = {
                 },
                 styles: {
                     name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true
+                    test: /\.(le|c)ss$/,
+                    chunks: 'all'
                 }
             }
-        },
-        //runtimeChunk: 'single',
+        }
     },
     module: {
         rules: [{
             test: /\.js[x]?$/,
             exclude: /node_modules/,
+            include: path.resolve(__dirname, 'src'),
             use: {
                 loader: 'babel-loader'
             }
@@ -78,7 +75,8 @@ module.exports = {
                 options: {
                     limit: 8192,
                     name: '[name].[ext]',
-                    outputPath: 'images/'
+                    outputPath: 'images/',
+                    publicPath: '../images'
                 }
             }]
         }, {
@@ -87,7 +85,8 @@ module.exports = {
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]',
-                    outputPath: 'fonts/'
+                    outputPath: 'fonts/',
+                    publicPath: '../fonts'
                 }
             }]
         }]

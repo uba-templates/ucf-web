@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './index.css';
+import './index.less';
 
 class Example extends Component {
     render() {
         return (
             <div className="example">
-                Hello,Example
+                Hello,Example from 'src/components/Example/index.js'
             </div>
         );
     }
