@@ -19,7 +19,7 @@ glob.sync("./src/pages/*/app.js").forEach(_path => {
     };
     HtmlPlugin.push(new HtmlWebPackPlugin(htmlConf));
 });
-// process.exit(0)
+
 module.exports = {
     entry: entries,
     output: {
@@ -37,20 +37,20 @@ module.exports = {
         }
     },
     optimization: {
-        splitChunks: {
-            cacheGroups: {
-                vendor: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: 'vendors',
-                    chunks: 'all'
-                },
-                styles: {
-                    name: 'styles',
-                    test: /\.(le|c)ss$/,
-                    chunks: 'all'
-                }
-            }
-        }
+        // splitChunks: {
+        //     cacheGroups: {
+        //         vendor: {
+        //             test: /[\\/]node_modules[\\/]/,
+        //             name: 'vendors',
+        //             chunks: 'all'
+        //         },
+        //         styles: {
+        //             name: 'styles',
+        //             test: /\.(le|c)ss$/,
+        //             chunks: 'all'
+        //         }
+        //     }
+        // }
     },
     module: {
         rules: [{
