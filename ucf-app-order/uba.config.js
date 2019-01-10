@@ -1,6 +1,7 @@
 require('@babel/polyfill');
 
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const glob = require('glob');
@@ -32,7 +33,8 @@ module.exports = (env, argv) => {
         devtool: env.mode == 'development' ? 'cheap-module-eval-source-map' : 'source-map',
         entry: entries,
         output: {
-            path: path.resolve(__dirname, '..', 'ucf-publish'),
+            //path: path.resolve(__dirname, '..', 'ucf-publish'),
+            path: path.resolve(__dirname, 'dist'),
             filename: env.mode == 'development' ? '[name].js' : '[name].[hash:8].js',
             chunkFilename: env.mode == 'development' ? '[name].chunk.js' : '[name].[hash:8].chunk.js',
         },
@@ -59,7 +61,11 @@ module.exports = (env, argv) => {
             extensions: ['.js', '.jsx', '.less', '.json', '.css'],
             alias: {
                 'ucf-workbench': path.resolve(__dirname, 'ucf-workbench/src/'),
-                'ucf-common': path.resolve(__dirname, 'ucf-common/src/')
+                'ucf-common': path.resolve(__dirname, 'ucf-common/src/'),
+                components: path.resolve(__dirname, 'src/components/'),
+                static: path.resolve(__dirname, 'src/static/'),
+                styles: path.resolve(__dirname, 'src/styles/'),
+                utils: path.resolve(__dirname, 'src/utils/')
             }
         },
         module: {
@@ -131,6 +137,9 @@ module.exports = (env, argv) => {
             new MiniCssExtractPlugin({
                 filename: env.mode == 'development' ? '[name].css' : '[name].[hash:8].css',
                 chunkFilename: env.mode == 'development' ? '[name].css' : '[name].[hash:8].chunk.css'
+            }),
+            new webpack.DefinePlugin({
+                GROBAL_HTTP_CTX: JSON.stringify("/ucf_demo")
             }),
             ...HtmlPlugin
         ]

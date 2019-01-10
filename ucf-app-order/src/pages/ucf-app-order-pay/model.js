@@ -1,4 +1,4 @@
-import {actions} from "mirrorx";
+import { actions } from "mirrorx";
 import * as api from "./service";
 
 export default {
@@ -6,7 +6,7 @@ export default {
     name: "pay",
     // 设置当前 Model 所需的初始化 state
     initialState: {
-        helloMsg:'',
+        helloMsg: '',
     },
     reducers: {
         /**
@@ -27,8 +27,9 @@ export default {
          * @param {*} param
          * @param {*} getState
          */
-        loadData(param, getState) {
-            
+        async loadData(params, getState) {
+            let result = await api.getList(params);
+            return result;
         }
     }
 };
