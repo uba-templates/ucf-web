@@ -3,7 +3,6 @@
 ### 1. 使用
 
 1. 克隆项目脚手架 `git clone https://github.com/uba-templates/ucf-web-multi.git`
-2. 通过命令`uba init ucf-web-multi`来下载`UCF`开发框架
 
 ### 2. 环境
 
