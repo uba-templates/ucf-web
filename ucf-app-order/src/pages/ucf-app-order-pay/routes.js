@@ -6,11 +6,12 @@
 
 import React from "react";
 import { Route } from "mirrorx";
-import { ConnectedPay } from "./container";
+import { ConnectedHome, ConnectedPay } from "./container";
 
 export default () => (
     <div className="route-content">
-        <Route exact path="/" component={ConnectedPay} />
+        <Route exact path="/" component={ConnectedHome} />
+        <Route exact path="/pay" component={ConnectedPay} />
     </div>
 )
 
