@@ -1,5 +1,5 @@
 {
-  "name": "ucf-web-multi",
+  "name": "ucf-web",
   "version": "1.0.0",
   "description": "",
   "scripts": {
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uba-templates/ucf-web-multi.git"
+    "url": "git+https://github.com/uba-templates/ucf-web.git"
   },
   "keywords": [],
   "author": "yonyou FED",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uba-templates/ucf-web-multi/issues"
+    "url": "https://github.com/uba-templates/ucf-web/issues"
   },
-  "homepage": "https://github.com/uba-templates/ucf-web-multi#readme",
+  "homepage": "https://github.com/uba-templates/ucf-web#readme",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
