@@ -3,6 +3,7 @@
 ### 1. 使用
 
 1. 克隆项目脚手架 `git clone https://github.com/uba-templates/ucf-web-multi.git`
+2. 通过工具获取
 
 ### 2. 环境
 
@@ -12,12 +13,11 @@
 
 ### 3. 运行
 
-1. 启动服务 `npm run dev`
-2. 构建服务 `npm run build`
+待定
 
-### 4. 开发目录规范
+### 4. 开发目录结构
 
-1. ucf-web 目录文件规范
+1. ucf-web 目录文件
 
 ```bash
 .
@@ -91,7 +91,7 @@
 └── webpack.production.js
 ```
 
-2. ucf-app-order 目录文件规范
+2. ucf-app-order 目录文件
 
 ```bash
 ucf-app-order
@@ -140,3 +140,17 @@ ucf-app-order
 └── test
     └── README.md
 ```
+
+### 5. 开发说明
+
+1. 外层模块说明
+
+- `ucf-app-order` 具体业务模块
+- `ucf-boot-starter` 用于启动全部工程或某一块
+- `ucf-common` 公共类可以发包
+- `ucf-workbench` 布局类或工作台
+
+2. 内层模块说明
+
+- `ucf-app-order/src/pages/ucf-app-order-pay` 微服务工程，包括入口、模型、路由、公共组件等
+- `ucf-app-order/src/components` 此类作为微服务内部需要的依赖资源
