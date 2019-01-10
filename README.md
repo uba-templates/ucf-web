@@ -17,40 +17,126 @@
 
 ### 4. 开发目录规范
 
-1. ucf-web 目录规范
+1. ucf-web 目录文件规范
 
 ```bash
 .
+├── LICENSE
+├── README.md
 ├── docs
+│   └── README.md
+├── package.json
 ├── ucf-app-order
+│   ├── dist
+│   │   └── README.md
+│   ├── package.json
+│   ├── src
+│   │   ├── components
+│   │   │   └── Order
+│   │   │       ├── index.js
+│   │   │       └── index.less
+│   │   ├── pages
+│   │   │   └── ucf-app-order-pay
+│   │   │       ├── app.js
+│   │   │       ├── app.less
+│   │   │       ├── components
+│   │   │       │   └── Pay
+│   │   │       │       ├── index.js
+│   │   │       │       └── index.less
+│   │   │       ├── container.js
+│   │   │       ├── index.html
+│   │   │       ├── model.js
+│   │   │       └── routes.js
+│   │   ├── static
+│   │   │   ├── fonts
+│   │   │   │   ├── demo.css
+│   │   │   │   ├── demo_fontclass.html
+│   │   │   │   ├── demo_symbol.html
+│   │   │   │   ├── demo_unicode.html
+│   │   │   │   ├── iconfont.css
+│   │   │   │   ├── iconfont.eot
+│   │   │   │   ├── iconfont.js
+│   │   │   │   ├── iconfont.svg
+│   │   │   │   ├── iconfont.ttf
+│   │   │   │   └── iconfont.woff
+│   │   │   ├── images
+│   │   │   │   └── nodata.png
+│   │   │   └── others
+│   │   │       └── README.md
+│   │   ├── styles
+│   │   │   └── index.less
+│   │   └── utils
+│   │       ├── index.js
+│   │       └── request.js
+│   └── test
+│       └── README.md
 ├── ucf-boot-starter
+│   └── boot.config.js
 ├── ucf-common
 │   └── src
 │       ├── components
 │       │   └── Example
+│       │       ├── index.js
+│       │       └── index.less
 │       ├── static
+│       │   └── README.md
 │       └── utils
-└── ucf-workbench
-    └── src
+│           └── index.js
+├── ucf-workbench
+│   └── src
+│       ├── Layout.js
+│       └── Layout.less
+├── webpack.common.js
+├── webpack.development.js
+└── webpack.production.js
 ```
 
-2. ucf-app-order 目录规范
+2. ucf-app-order 目录文件规范
 
 ```bash
 ucf-app-order
 ├── dist
+│   └── README.md
+├── package.json
 ├── src
+│   ├── .DS_Store
 │   ├── components
 │   │   └── Order
+│   │       ├── index.js
+│   │       └── index.less
 │   ├── pages
 │   │   └── ucf-app-order-pay
-│   │       └── components
-│   │           └── Pay
+│   │       ├── app.js
+│   │       ├── app.less
+│   │       ├── components
+│   │       │   └── Pay
+│   │       │       ├── index.js
+│   │       │       └── index.less
+│   │       ├── container.js
+│   │       ├── index.html
+│   │       ├── model.js
+│   │       └── routes.js
 │   ├── static
 │   │   ├── fonts
+│   │   │   ├── demo.css
+│   │   │   ├── demo_fontclass.html
+│   │   │   ├── demo_symbol.html
+│   │   │   ├── demo_unicode.html
+│   │   │   ├── iconfont.css
+│   │   │   ├── iconfont.eot
+│   │   │   ├── iconfont.js
+│   │   │   ├── iconfont.svg
+│   │   │   ├── iconfont.ttf
+│   │   │   └── iconfont.woff
 │   │   ├── images
+│   │   │   └── nodata.png
 │   │   └── others
+│   │       └── README.md
 │   ├── styles
+│   │   └── index.less
 │   └── utils
+│       ├── index.js
+│       └── request.js
 └── test
+    └── README.md
 ```
