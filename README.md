@@ -17,41 +17,40 @@
 
 ### 4. 开发目录规范
 
-1. 源码目录规范
+1. ucf-web 目录规范
 
 ```bash
-
-├── src
-│   ├── components              # 项目级别的公共封装业务组件
-│   │   └── Example             # 具体公共组件
-│   ├── pages                   # 业务页面节点
-│   │   └── example             # 具体页面节点
-│   │       ├── components      # 页面内提取公共业务组件
-│   │       │   └── Example     # 公共组件
-│   │       └── routes          # 路由配置
-│   ├── static                  # 图片、字体、第三方资源
-│   │   ├── font                # 字体
-│   │   ├── images              # 图片
-│   │   └── trd                 # 其他第三方资源
-│   ├── styles                  # 工程全局样式
-│   └── utils                   # 公共函数类
-└── test
+.
+├── docs
+├── ucf-app-order
+├── ucf-boot-starter
+├── ucf-common
+│   └── src
+│       ├── components
+│       │   └── Example
+│       ├── static
+│       └── utils
+└── ucf-workbench
+    └── src
 ```
 
-2. 页面目录规范
+2. ucf-app-order 目录规范
 
 ```bash
-
-└── example
-    ├── app.js                  # 逻辑入口文件
-    ├── components              # 页面内公共组件
-    │   └── Example             # 公共组件
-    │       ├── index.js        # 组件文件
-    │       └── index.less      # 组件样式
-    ├── container.js            # 容器类
-    ├── index.html              # 模板文件
-    ├── model.js                # 模型层，基于mirrorx定义组件的vm逻辑
-    ├── routes                  # 路由层，如果该模块为单页应用，可以在此配置
-    │   └── index.js
-    └── service.js              # 服务请求层，基于axios，只完成服务请求的API编写
+ucf-app-order
+├── dist
+├── src
+│   ├── components
+│   │   └── Order
+│   ├── pages
+│   │   └── ucf-app-order-pay
+│   │       └── components
+│   │           └── Pay
+│   ├── static
+│   │   ├── fonts
+│   │   ├── images
+│   │   └── others
+│   ├── styles
+│   └── utils
+└── test
 ```

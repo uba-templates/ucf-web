@@ -7,19 +7,22 @@ const glob = require("glob");
 const entries = {};
 const HtmlPlugin = [];
 
-glob.sync("./src/pages/*/app.js").forEach(_path => {
-    const chunk = _path.split("./src/pages/")[1].split(".js")[0];
+glob.sync("./ucf-app-*/src/app.js").forEach(_path => {
+    const chunk = _path.split("/src/app.js")[0];
     entries[chunk] = _path;
     const htmlConf = {
-        filename: `${chunk.split('/app')[0]}/index.html`,
+        filename: `${chunk}/index.html`,
         template: `${_path.split('/app.js')[0]}/index.html`,
         inject: 'body',
-        chunks: ['vendors', 'styles', chunk],
+        chunks: [chunk],
         hash: true
     };
     HtmlPlugin.push(new HtmlWebPackPlugin(htmlConf));
+    console.log(entries)
+    console.log(htmlConf)
 });
 
+// process.exit(0)
 module.exports = {
     entry: entries,
     output: {
@@ -33,7 +36,9 @@ module.exports = {
             components: path.resolve(__dirname, 'src/components/'),
             styles: path.resolve(__dirname, 'src/styles/'),
             static: path.resolve(__dirname, 'src/static/'),
-            utils: path.resolve(__dirname, 'src/utils/')
+            utils: path.resolve(__dirname, 'src/utils/'),
+            'ucf-workbench': path.resolve(__dirname, 'ucf-workbench/src/'),
+            'ucf-common': path.resolve(__dirname, 'ucf-common/src/')
         }
     },
     optimization: {
@@ -58,7 +63,25 @@ module.exports = {
             exclude: /node_modules/,
             include: path.resolve(__dirname, 'src'),
             use: {
-                loader: 'babel-loader'
+                loader: 'babel-loader',
+                options: {
+                    babelrc: false,
+                    presets: ['@babel/preset-env', '@babel/preset-react'],
+                    plugins: [
+                        ['dynamic-import-webpack', {
+                            'helpers': false,
+                            'polyfill': true,
+                            'regenerator': true
+                        }],
+                        '@babel/plugin-proposal-class-properties',
+                        ["@babel/plugin-transform-runtime", {
+                            "corejs": false,
+                            "helpers": true,
+                            "regenerator": true,
+                            "useESModules": false
+                        }]
+                    ]
+                }
             }
         }, {
             test: /\.(le|c)ss$/,
@@ -67,7 +90,14 @@ module.exports = {
                 options: {
                     publicPath: './'
                 }
-            }, 'css-loader', 'postcss-loader', 'less-loader']
+            }, 'css-loader', {
+                loader: 'postcss-loader',
+                options: {
+                    ident: 'postcss',
+                    plugins: (loader) => [require('autoprefixer')({ browsers: ['last 2 Chrome versions', 'last 2 Firefox versions', 'Safari >= 7', 'ie > 10'] }),
+                    require('postcss-flexbugs-fixes')]
+                }
+            }, 'less-loader']
         }, {
             test: /\.(png|svg|jpg|gif)$/,
             use: [{
